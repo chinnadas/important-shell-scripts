@@ -1,14 +1,14 @@
 #!/bin/bash
 #Script to take backup and move to other server
-file=/etc
+src=/etc
 dest=/opt
 server=192.168.10.81
 
-echo "Backup of $file is starting"
+echo "Backup of $src is starting"
 sleep 3
-tar -zcvf $dest/`date "+%F"`-etc.tgz $file &>/dev/null # tar -zcvf /opt/etc.tgz /etc
+tar -zcvf $dest/`date "+%F"`-etc.tgz $src &>/dev/null # tar -zcvf /opt/etc.tgz /etc
 	if [ $? -eq 0 ];then
-		echo "Backup of $file is successful"
+		echo "Backup of $src is successful"
 	else
 		echo "Backup failed"
 		exit 1
